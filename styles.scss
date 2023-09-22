@@ -1,9 +1,17 @@
 #calcBody {
     background-image: linear-gradient(90deg, #BEBEBE, #D3D3D3);
+    padding: 15px;
+}
+
+div.numbers {
+    margin-bottom: 10px;
+}
+
+div.window {
+
 }
 
 div {
-    padding: 5px;
     button { 
         text-align: center;
         font-family: monospace;
@@ -13,6 +21,7 @@ div {
         margin: 0;
         background-image: linear-gradient(#EBEBEB 50%, #DCDCDC 50%);
         border-radius: 5px;
+        margin-right: 10px;
     }    
     .numbers {
         font-size: 0;
