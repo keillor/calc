@@ -1,10 +1,26 @@
 #calcBody {
   background-image: linear-gradient(90deg, #BEBEBE, #D3D3D3);
   padding: 15px;
+  width: fit-content;
+  font-family: monospace;
 }
 
 div.numbers {
   margin-bottom: 10px;
+}
+
+div.window {
+  width: 230px;
+  height: 40px;
+  background-image: linear-gradient(#FFFFFF 50%, #E8E8E8 50%);
+  margin-bottom: 10px;
+  border-radius: 3px;
+  box-shadow: inset 0px 0px 10px 0px black;
+}
+div.window #screen {
+  padding-right: 10px;
+  text-align: right;
+  font-size: 30px;
 }
 
 div button {
