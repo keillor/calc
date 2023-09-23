@@ -6,7 +6,7 @@ function numPress(a) {
   let screen = document.getElementById("screen").innerText;
   if (screen == "0") {
     screen = a;
-  } else if (screen == "ERROR") {
+  } else if (screen == "ERROR" || screen == "NaN") {
     Clear();
     screen = a;
   } else {
@@ -27,7 +27,6 @@ function OperatorKat(operator) {
     if (f == "+" || f == "-" || f == "X" || f == "÷") {
       i++;
       lastOperator = screen[x];
-      console.log(lastOperator);
     }
   }
 
@@ -35,6 +34,12 @@ function OperatorKat(operator) {
     // we don't have an operator in this string. Let's add the specificed one!
     screen = screen + operator;
     document.getElementById("screen").innerText = screen;
+  } else if (screen[0] == "-" && i == 1) {
+    //if the number is negative
+    console.log(screen[0]);
+    screen = screen + operator;
+    document.getElementById("screen").innerText = screen;
+    return;
   } else {
     if (1 == i) {
       console.log("i equal to 1");
