@@ -94,7 +94,10 @@ function Equals() {
           //screen = screen.toFixed(5);
           break;
       }
-      //submit to the screen
+      //round length to 12 if need be...
+      if (screen.length > 12) {
+        screen = screen.toFixed(12);
+      }
       document.getElementById("screen").innerText = screen;
     } else {
       //numbers only on 1 side of operator.
