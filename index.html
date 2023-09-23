@@ -10,28 +10,34 @@
         <p id="screen">0</p>
       </div>
       <div class="numbers" id="row1">
-        <button id="1">1</button>
-        <button id="2">2</button>
-        <button id="3">3</button>
-        <button class="operator" id="plus">+</button>
+        <button id="1" onclick="numPress(1)">1</button>
+        <button id="2" onclick="numPress(2)">2</button>
+        <button id="3" onclick="numPress(3)">3</button>
+        <button class="operator" id="plus" onclick="OperatorKat('+')">+</button>
       </div>
       <div class="numbers" id="row2">
-        <button id="4">4</button>
-        <button id="5">5</button>
-        <button id="6">6</button>
-        <button class="operator" id="minus">-</button>
+        <button id="4" onclick="numPress(4)">4</button>
+        <button id="5" onclick="numPress(5)">5</button>
+        <button id="6" onclick="numPress(6)">6</button>
+        <button class="operator" id="minus" onclick="OperatorKat('-')">
+          -
+        </button>
       </div>
       <div class="numbers" id="row3">
-        <button id="7">7</button>
-        <button id="8">8</button>
-        <button id="9">9</button>
-        <button class="operator" id="multiply">X</button>
+        <button id="7" onclick="numPress(7)">7</button>
+        <button id="8" onclick="numPress(8)">8</button>
+        <button id="9" onclick="numPress(9)">9</button>
+        <button class="operator" id="multiply" onclick="OperatorKat('X')">
+          X
+        </button>
       </div>
       <div class="numbers" id="row4">
         <button class="operator" id="clear" onclick="Clear();">C</button>
-        <button id="0">0</button>
+        <button id="0" onclick="numPress(0)">0</button>
         <button class="operator" id="equals">=</button>
-        <button class="operator" id="divide">/</button>
+        <button class="operator" id="divide" onclick="OperatorKat('÷')">
+          ÷
+        </button>
       </div>
     </div>
   </body>
