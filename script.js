@@ -6,6 +6,9 @@ function numPress(a) {
   let screen = document.getElementById("screen").innerText;
   if (screen == "0") {
     screen = a;
+  } else if (screen == "ERROR") {
+    Clear();
+    screen = a;
   } else {
     screen = screen + a;
   }
@@ -81,8 +84,14 @@ function Equals() {
           screen = a * b;
           break;
         case "÷":
-          screen = a / b;
-          screen = screen.toFixed(5);
+          if (b == 0) {
+            screen = "ERROR";
+            alert("Divide by 0 Error!");
+          } else {
+            screen = a / b;
+          }
+
+          //screen = screen.toFixed(5);
           break;
       }
       //submit to the screen
