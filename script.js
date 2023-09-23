@@ -1,75 +1,76 @@
 function Clear() {
-    document.getElementById("screen").innerText = 0; // .innterHTML would also work
- }
+  document.getElementById("screen").innerText = 0; // .innterHTML would also work
+}
 
 function numPress(a) {
-    /* THIS METHOD PARSES MUCH BEFORE
-    // lets get the number using document.get...
-    let screen = document.getElementById("screen").innerText;
-    console.log(isNaN(screen));
-
-    // should be entered if a number is already present on the screen. 
-    if (isNaN(screen) == false) {
-        //check to see if number is zero
-        if (screen == 0) {
-            console.log("function 1")
-            screen = a;
-        }
-        //should only be used if we have a non-zero number
-        else {
-            //multiply by 10 to move digits over
-            console.log("function 2")
-            screen = screen * 10;
-            screen = screen + a;
-        }
-
-    }
-    // should be used if operator is found at the end of the string
-    else if ((str.slice(-1) ==  "X" || "÷" || "+" || "-")) {
-
-    }
-    //should be used if error message is on screen to clear error out.
-    else {
-        console.log("function 3")
-        screen = a;
-    }
-
-    //push to HTML at the end of everything and return.
-    document.getElementById("screen").innerText = screen;
-    return;*/
-
-    // THIS METHOD ALLOWS FOR PARSING A LITTLE BIT LATER.
-
-    let screen = document.getElementById("screen").innerText;
-    if(screen == "0") {
-        screen = a;
-    }
-    else {
-        screen = screen + a;
-    }
-    document.getElementById("screen").innerText = screen;
-    return;
+  let screen = document.getElementById("screen").innerText;
+  if (screen == "0") {
+    screen = a;
+  } else {
+    screen = screen + a;
+  }
+  document.getElementById("screen").innerText = screen;
+  return;
 }
 
 function OperatorKat(operator) {
-    let screen = document.getElementById("screen").innerText;
-    //traverse through the chars in the screen string
-    let i = 0;
-    for (let x = 0; x < screen.length; x++) {
-        console.log(screen[x]);
-        let f = screen[x];
-        if(f == "+" || f == "-" || f == "X" || f == "÷") {
-            i++;
-        }
+  let screen = document.getElementById("screen").innerText;
+  //traverse through the chars in the screen string
+  let i = 0;
+  let lastOperator = "";
+  //lets count how many operators we already have.
+  for (let x = 0; x < screen.length; x++) {
+    let f = screen[x];
+    if (f == "+" || f == "-" || f == "X" || f == "÷") {
+      i++;
+      lastOperator = screen[x];
+      console.log(lastOperator);
     }
-    if (i < 1) {
-        // we don't have an operator in this string. Let's add one!
-        screen = screen + operator;
-    }
-    else {
-        // we already have a operator in this string, lets check to see if it's at the end.        
+  }
+
+  if (i < 1) {
+    // we don't have an operator in this string. Let's add the specificed one!
+    screen = screen + operator;
+    document.getElementById("screen").innerText = screen;
+  } else {
+    if (1 == i) {
+      console.log("i equal to 1");
+      // we already have a operator in this string, lets check to see if it's at the end.
+      // if we have exactly 1 operator
+      // and it is exactly at the end
+      if (lastOperator == screen[screen.length - 1]) {
+        //then we are eligible to change the operator
+        screen = screen.replace(lastOperator, operator);
+        console.log(screen);
+      }
     }
     document.getElementById("screen").innerText = screen;
+    return;
+  }
 }
 
-
+function Equals() {
+  screen = document.getElementById("screen").innerText;
+  let i = 0;
+  let lastOperator = "";
+  for (let x = 0; x < screen.length; x++) {
+    let f = screen[x];
+    if (f == "+" || f == "-" || f == "X" || f == "÷") {
+      i++;
+      lastOperator = screen[x];
+    }
+  }
+  if (lastOperator != "") {
+    //we have an oeprator
+    const splitStuff = screen.split(lastOperator);
+    if (splitStuff[1] != "") {
+      //we have numbers on both sides of the operator.
+      let a = 
+    } else {
+      //numbers only on 1 side of operator. 
+    }
+  } else {
+    // there is no operator
+    return;
+  }
+}
