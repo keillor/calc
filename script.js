@@ -60,6 +60,7 @@ function Equals() {
       lastOperator = screen[x];
     }
   }
+  //I built this way to accomodate for potential PEMDAS...for now I will stick to one oeprator.
   if (lastOperator != "") {
     //we have an oeprator
     const splitStuff = screen.split(lastOperator);
