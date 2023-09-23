@@ -65,9 +65,29 @@ function Equals() {
     const splitStuff = screen.split(lastOperator);
     if (splitStuff[1] != "") {
       //we have numbers on both sides of the operator.
-      let a = 
+      let a = splitStuff[0];
+      let b = splitStuff[1];
+      a = parseInt(a);
+      b = parseInt(b);
+      switch (lastOperator) {
+        case "+":
+          screen = a + b;
+          break;
+        case "-":
+          screen = a - b;
+          break;
+        case "X":
+          screen = a * b;
+          break;
+        case "÷":
+          screen = a / b;
+          screen = screen.toFixed(5);
+          break;
+      }
+      //submit to the screen
+      document.getElementById("screen").innerText = screen;
     } else {
-      //numbers only on 1 side of operator. 
+      //numbers only on 1 side of operator.
     }
   } else {
     // there is no operator
