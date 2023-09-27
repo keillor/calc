@@ -106,9 +106,8 @@ function Equals() {
             alert("Divide by 0 Error!");
           } else {
             screen = a / b;
+            screen = Math.round(screen * 1000000) / 1000000;
           }
-
-          //screen = screen.toFixed(5);
           break;
       }
       //round length to 12 if need be...

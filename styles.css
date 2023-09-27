@@ -21,6 +21,7 @@ div.window #screen {
   padding-right: 10px;
   text-align: right;
   font-size: 30px;
+  overflow-x: auto;
 }
 
 div button {
