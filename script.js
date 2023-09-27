@@ -38,13 +38,11 @@ function OperatorKat(operator) {
     document.getElementById("screen").innerText = screen;
   } else if (screen[0] == "-" && i == 1) {
     //if the number is negative
-    console.log(screen[0]);
     screen = screen + operator;
     document.getElementById("screen").innerText = screen;
     return;
   } else {
     if (1 == i) {
-      console.log("i equal to 1");
       // we already have a operator in this string, lets check to see if it's at the end.
       // if we have exactly 1 operator
       // and it is exactly at the end
@@ -54,9 +52,7 @@ function OperatorKat(operator) {
         screen = screen.substring(0, lastOperatorPOS) + operator;
       }
     } else if (2 == i) {
-      console.log("i equal to 2");
       screen = screen.substring(0, lastOperatorPOS - 1) + operator;
-      console.log(screen);
     }
     document.getElementById("screen").innerText = screen;
     return;
@@ -83,15 +79,15 @@ function Equals() {
   }
   if (lastOperator != "") {
     //we have an oeprator
-    let leftSide = 0;
-    let rightSide = 0;
-    //const splitStuff = screen.split();
-    leftSide = screen.substring(0, lastOperatorPOS - 1);
-    rightSide = screen.slice(lastOperatorPOS + 1);
-    if (rightSide != "") {
+    const splitStuff = screen.split(lastOperator);
+    let leftSide = screen.substring(0, lastOperatorPOS - 1);
+    let rightSide = screen.substring(lastOperatorPOS + 1);
+    console.log(leftSide);
+    console.log(rightSide);
+    if (splitStuff[1] != "") {
       //we have numbers on both sides of the operator.
-      let a = leftSide;
-      let b = rightSide;
+      let a = splitStuff[0];
+      let b = splitStuff[1];
       a = parseInt(a);
       b = parseInt(b);
       switch (lastOperator) {
