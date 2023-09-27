@@ -5,11 +5,13 @@ function Clear() {
 function numPress(a) {
   let screen = document.getElementById("screen").innerText;
   if (screen == "0") {
+    //there is nothing on screen
     screen = a;
   } else if (screen == "ERROR" || screen == "NaN") {
     Clear();
     screen = a;
   } else {
+    //num + a
     screen = screen + a;
   }
   document.getElementById("screen").innerText = screen;
@@ -80,14 +82,14 @@ function Equals() {
   if (lastOperator != "") {
     //we have an oeprator
     const splitStuff = screen.split(lastOperator);
-    let leftSide = screen.substring(0, lastOperatorPOS - 1);
+    let leftSide = screen.substring(0, lastOperatorPOS);
     let rightSide = screen.substring(lastOperatorPOS + 1);
     console.log(leftSide);
     console.log(rightSide);
-    if (splitStuff[1] != "") {
+    if (rightSide != "") {
       //we have numbers on both sides of the operator.
-      let a = splitStuff[0];
-      let b = splitStuff[1];
+      let a = leftSide; //splitStuff[0];
+      let b = rightSide; //splitStuff[1];
       a = parseInt(a);
       b = parseInt(b);
       switch (lastOperator) {
