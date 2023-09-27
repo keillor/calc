@@ -21,12 +21,14 @@ function OperatorKat(operator) {
   //traverse through the chars in the screen string
   let i = 0;
   let lastOperator = "";
+  let lastOperatorPOS = 0;
   //lets count how many operators we already have.
   for (let x = 0; x < screen.length; x++) {
     let f = screen[x];
     if (f == "+" || f == "-" || f == "X" || f == "÷") {
       i++;
       lastOperator = screen[x];
+      lastOperatorPOS = x;
     }
   }
 
@@ -48,9 +50,13 @@ function OperatorKat(operator) {
       // and it is exactly at the end
       if (lastOperator == screen[screen.length - 1]) {
         //then we are eligible to change the operator
-        screen = screen.replace(lastOperator, operator);
-        console.log(screen);
+        // screen = screen.replace(lastOperator, operator);
+        screen = screen.substring(0, lastOperatorPOS) + operator;
       }
+    } else if (2 == i) {
+      console.log("i equal to 2");
+      screen = screen.substring(0, lastOperatorPOS - 1) + operator;
+      console.log(screen);
     }
     document.getElementById("screen").innerText = screen;
     return;
@@ -61,21 +67,31 @@ function Equals() {
   screen = document.getElementById("screen").innerText;
   let i = 0;
   let lastOperator = "";
+  let lastOperatorPOS = 0;
   for (let x = 0; x < screen.length; x++) {
     let f = screen[x];
     if (f == "+" || f == "-" || f == "X" || f == "÷") {
       i++;
       lastOperator = screen[x];
+      lastOperatorPOS = x;
     }
   }
   //I built this way to accomodate for potential PEMDAS...for now I will stick to one oeprator.
+  if (lastOperatorPOS == 0 && lastOperator == "-") {
+    //we only have 1 operator and its a negative...
+    return;
+  }
   if (lastOperator != "") {
     //we have an oeprator
-    const splitStuff = screen.split(lastOperator);
-    if (splitStuff[1] != "") {
+    let leftSide = 0;
+    let rightSide = 0;
+    //const splitStuff = screen.split();
+    leftSide = screen.substring(0, lastOperatorPOS - 1);
+    rightSide = screen.slice(lastOperatorPOS + 1);
+    if (rightSide != "") {
       //we have numbers on both sides of the operator.
-      let a = splitStuff[0];
-      let b = splitStuff[1];
+      let a = leftSide;
+      let b = rightSide;
       a = parseInt(a);
       b = parseInt(b);
       switch (lastOperator) {
@@ -104,6 +120,9 @@ function Equals() {
         screen = screen.toFixed(12);
       }
       document.getElementById("screen").innerText = screen;
+    } else if (1 == lastOperator && "-" == lastOperator) {
+      // if we have a negative in front and only the negative, this the calculation.
+      return;
     } else {
       //numbers only on 1 side of operator.
     }
