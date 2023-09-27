@@ -54,7 +54,7 @@ function OperatorKat(operator) {
         screen = screen.substring(0, lastOperatorPOS) + operator;
       }
     } else if (2 == i) {
-      screen = screen.substring(0, lastOperatorPOS - 1) + operator;
+      screen = screen.substring(0, lastOperatorPOS) + operator;
     }
     document.getElementById("screen").innerText = screen;
     return;
@@ -84,8 +84,6 @@ function Equals() {
     const splitStuff = screen.split(lastOperator);
     let leftSide = screen.substring(0, lastOperatorPOS);
     let rightSide = screen.substring(lastOperatorPOS + 1);
-    console.log(leftSide);
-    console.log(rightSide);
     if (rightSide != "") {
       //we have numbers on both sides of the operator.
       let a = leftSide; //splitStuff[0];
