@@ -1,8 +1,25 @@
+const numButtons = document.querySelectorAll("button.num");
+const opButtons = document.querySelectorAll("button.operator:not(#equals)")
+const clearButton = document.querySelector("button#clear")
+const equalButton = document.querySelector("button#equals");
+
+clearButton.addEventListener("click", Clear);
+equalButton.addEventListener("click", Equals);
+for (let button of numButtons) {
+  button.addEventListener("click", numPress);
+}
+for (let button of opButtons) {
+  button.addEventListener("click", OperatorKat)
+}
+
+``
+
 function Clear() {
   document.getElementById("screen").innerText = 0; // .innterHTML would also work
 }
 
-function numPress(a) {
+function numPress(event) {
+  const a = event.target.innerHTML;
   let screen = document.getElementById("screen").innerText;
   if (screen == "0") {
     //there is nothing on screen
@@ -18,7 +35,8 @@ function numPress(a) {
   return;
 }
 
-function OperatorKat(operator) {
+function OperatorKat(event) {
+  let operator = event.target.innerHTML;
   let screen = document.getElementById("screen").innerText;
   //traverse through the chars in the screen string
   let i = 0;
