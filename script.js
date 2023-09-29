@@ -1,3 +1,8 @@
+//const numButtons = document.querySelectorAll(".numbers")
+
+for (numButtons in buttons) {
+}
+
 function Clear() {
   document.getElementById("screen").innerText = 0; // .innterHTML would also work
 }
